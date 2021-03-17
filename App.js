@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import * as firebase from 'firebase';
+import * as firebase from "firebase";
+import "firebase/auth";
+import "firebase/database";
+import "firebase/firestore";
+import "firebase/functions";
+import "firebase/storage"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBs5q9LrmufF22x8DoYHsM2rvUHk1VBH84",
   authDomain: "softminds-f4345.firebaseapp.com",
+  databaseURL: "https://softminds-f4345-default-rtdb.firebaseio.com",
   projectId: "softminds-f4345",
   storageBucket: "softminds-f4345.appspot.com",
   messagingSenderId: "364045688081",
@@ -25,7 +31,7 @@ export default class App extends React.Component {
   }
 
   addUserInDatabase = () => {
-    firebase.database().ref("user").set({
+    firebase.database().ref("user").push({
       username: "diana",
       password: "1234",
       email: "diana.udisteanu@yahoo.com"
