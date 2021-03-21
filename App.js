@@ -1,6 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+
+import AddIntoStack from './routes/routes';
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
+
 import * as firebase from "firebase";
 import "firebase/auth";
 import "firebase/database";
@@ -17,37 +22,43 @@ const firebaseConfig = {
   messagingSenderId: "364045688081",
   appId: "1:364045688081:web:2fe5bd513c7c3c83ef40b0"
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+
+const fontConfig = {
+  "light-font": require("./fonts/ProximaNovaThin.otf"),
+  "normal-font": require("./fonts/ProximaNovaRegular.otf"),
+  "bold-font": require("./fonts/ProximaNovaBold.otf")
+};
 
 export default class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      username: "",
-      password: "",
-      email: ""
+      fontsLoaded: false
     };
   }
 
-  addUserInDatabase = () => {
-    firebase.database().ref("user").push({
-      username: "diana",
-      password: "1234",
-      email: "diana.udisteanu@yahoo.com"
-    }).catch(function(error){
-      console.log(error.message)
-    })
+  async loadFonts(){
+    await Font.loadAsync(fontConfig)
+    this.setState({fontsLoaded:true})
+  }
+
+  async componentDidMount(){
+    this.loadFonts();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   }
 
   render(){
-    return (
-      <View style={styles.container}>
-        <Text>SoftMINDS</Text>
-        <StatusBar style="auto" />
-        <Button title="Write" onPress = {this.addUserInDatabase}/> 
-      </View>
-    );
+    if(this.state.fontsLoaded){
+      return(
+        <AddIntoStack/>
+      );
+    }
+    else{
+      return(
+        <AppLoading/>
+      );
+    }
   }
 }
 
