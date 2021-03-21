@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignUp from '../screens/sign-up';
+import Login from '../screens/login';
 
 const Stack = createStackNavigator();
 function AddIntoStack(){
@@ -16,6 +17,9 @@ function AddIntoStack(){
                               })
                             
                                       }
+                />
+                <Stack.Screen name="Login"
+                              component={Login}
                 />
             </Stack.Navigator>
         </NavigationContainer>
