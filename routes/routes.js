@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignUp from '../screens/sign-up';
 import Login from '../screens/login';
+import Menu from '../screens/menu';
 
 const Stack = createStackNavigator();
 function AddIntoStack(){
@@ -14,12 +15,16 @@ function AddIntoStack(){
                               component={SignUp} 
                               options={({navigation}) => ({
                                   headerShown: false
-                              })
-                            
-                                      }
+                              })}
                 />
                 <Stack.Screen name="Login"
                               component={Login}
+                              options={({navigation}) => ({
+                                headerShown: false
+                            })}
+                />
+                <Stack.Screen name="Menu"
+                    component={Menu}
                 />
             </Stack.Navigator>
         </NavigationContainer>
