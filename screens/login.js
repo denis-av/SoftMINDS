@@ -17,7 +17,7 @@ export default class Login extends React.Component{
         return(
             <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                <StatusBar barStyle={"light-content"}/>
-               <ImageBackground  source={require("../app/images/bg1.png")} style={{width: "100%", height: "100%"}}> 
+               <ImageBackground  source={require("../app/images/bg3.jpeg")} style={{width: "100%", height: "100%"}}> 
                  <View style={{flex: 0.3, flexDirection: 'row', marginTop: 70, alignItems:'center'}}>
                     <Image source={require("../app/images/logo1.png")} style={{width: "33%", height: "33%"}} resizeMode='contain'/>
                     <Text style={{color:'white',fontFamily:'bold-font', fontSize:59, marginTop:"17%",marginLeft:"-13%"}}>SoftMINDS</Text>
