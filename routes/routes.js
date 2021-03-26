@@ -26,6 +26,9 @@ function AddIntoStack(){
                 />
                 <Stack.Screen name="Menu"
                     component={Menu}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
                 />
                 <Stack.Screen name="Levels"
                     component={Levels}
