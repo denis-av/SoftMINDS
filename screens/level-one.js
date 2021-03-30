@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ImageBackground, Pressable, Text, Image, TextInput} from 'react-native';
+import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import NumberCard from '../components/number-card';
 
 export default class LevelOne extends React.Component{
@@ -9,8 +9,6 @@ export default class LevelOne extends React.Component{
             answer: ""
         };
     };
-
-    handleAnswer = (text) => {this.setState({answer: text})};
 
     render(){
         return(
@@ -27,38 +25,42 @@ export default class LevelOne extends React.Component{
                     <View style={{flex: 0.09, alignItems:'center', justifyContent:'center'}}>
                         <Text style={{fontSize:35, color:'white', fontFamily:'bold-font'}}>00:10</Text>
                     </View>
-                    <View style={{flex: 0.50, backgroundColor:'blue'}}>
-
-                    </View>
-                    <View style={{flex: 0.10,  flexDirection:'row', alignItems:'flex-end', justifyContent: 'space-around'}}>
-                        <View style={{flexDirection:'row', alignItems:'center', borderWidth:2, borderTopWidth:0, borderLeftWidth:0, borderRightWidth:0, height:"50%",borderColor:'white', width:"48%", marginLeft:"7%"}}>
-                            <TextInput placeholder="Answer here" 
+                    <View style={{flex: 0.50, backgroundColor:'blue'}}></View>
+                    <View style={{flex: 0.10,  flexDirection:'row', marginHorizontal:"7%", alignItems:'center', justifyContent:'center'}}>
+                        <View style={{flex: 0.60, flexDirection:'column', justifyContent:'flex-end', height:"70%"}}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <TextInput placeholder="Answer here" 
                                        placeholderTextColor="#696969"
-                                       style={{color: '#696969',fontSize:21, fontFamily:'bold-font'}}
+                                       style={{color: '#696969',fontSize:23, fontFamily:'bold-font', width:"85%"}}
                                        value={this.state.answer}
-                                       onChangeText={this.handleAnswer}
-                            />
-                            <Image source={require("../app/images/x.png")} resizeMode = "contain" style={{width:"40%", height:"40%", marginLeft:"14%"}}/>
+                                       editable = {false}
+                                />
+                                <TouchableOpacity style ={{width:30, height:30, alignItems:'center', justifyContent:'center'}} onPress={() => this.setState({answer: ""})}>
+                                    <Image source={require("../app/images/x.png")} resizeMode = "contain" style={{width:"70%", height:"70%"}}/>
+                                </TouchableOpacity>
+                            </View>
+                        <View style={{flexDirection:'row', alignItems:'center', borderWidth:2, borderTopWidth:0, borderLeftWidth:0, borderRightWidth:0,borderColor:'white', width:"97%"}}></View>
                         </View>
-                        
-                        <Pressable style={{backgroundColor: '#F3A416', height:"70%", width:"31%", alignItems:'center', justifyContent:'center', marginRight:"7%"}}  onPress={() => console.log("aaa")} >
-                            <Text style={{fontSize: 25, fontFamily:'bold-font', color:'white'}}>SUBMIT</Text>
-                        </Pressable>
+                            <View style={{flex:0.40}}>
+                                <Pressable style={{backgroundColor: '#F3A416', height:"70%", alignItems:'center', justifyContent:'center', marginLeft:"7%"}}  onPress={() => console.log("aaa")} >
+                                    <Text style={{fontSize: 25, fontFamily:'bold-font', color:'white'}}>SUBMIT</Text>
+                                </Pressable>
+                            </View>
                     </View>
-                    <View style={{flex: 0.22, justifyContent:'space-around', alignContent:'center', marginHorizontal:"7%"}}>
-                        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around', marginTop:"5%"}}>
-                            <NumberCard number={"0"} bgColor="#F3A416"/>
-                            <NumberCard number={"1"} bgColor="#F3A416"/>
-                            <NumberCard number={"2"} bgColor="#F3A416"/>
-                            <NumberCard number={"3"} bgColor="#F3A416"/>
-                            <NumberCard number={"4"} bgColor="#F3A416"/>
+                    <View style={{flex: 0.22, justifyContent:'space-evenly',marginBottom:"7%", alignContent:'center', marginHorizontal:"7%"}}>
+                        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+                            <NumberCard number={"0"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("0")})}/>
+                            <NumberCard number={"1"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("1")})}/>
+                            <NumberCard number={"2"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("2")})}/>
+                            <NumberCard number={"3"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("3")})}/>
+                            <NumberCard number={"4"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("4")})}/>
                         </View>
-                        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around', marginBottom:"10%"}}>
-                            <NumberCard number={"5"} bgColor="#F3A416"/>
-                            <NumberCard number={"6"} bgColor="#F3A416"/>
-                            <NumberCard number={"7"} bgColor="#F3A416"/>
-                            <NumberCard number={"8"} bgColor="#F3A416"/>
-                            <NumberCard number={"9"} bgColor="#F3A416"/>
+                        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+                            <NumberCard number={"5"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("5")})}/>
+                            <NumberCard number={"6"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("6")})}/>
+                            <NumberCard number={"7"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("7")})}/>
+                            <NumberCard number={"8"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("8")})}/>
+                            <NumberCard number={"9"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("9")})}/>
                         </View>
                         
                     </View>
