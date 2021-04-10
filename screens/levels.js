@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageBackground, View, Text, Image, Pressable} from 'react-native';
+import {ImageBackground, View, Text, Image, Pressable, TouchableOpacity} from 'react-native';
 import LevelCard from "../components/level-card";
 
 export default class Levels extends React.Component{
