@@ -1,14 +1,47 @@
 import React from 'react';
-import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 import NumberCard from '../components/number-card';
+import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
+import StopWatch from '../node_modules/react-native-stopwatch-timer/lib/stopwatch';
 
 export default class LevelOne extends React.Component{
     constructor(){
         super();
         this.state = {
-            answer: ""
+            answer: "",
+            isStopwatchActive: false,
+            correctAnswer: '13'
         };
+        this.currentTime = "";
     };
+
+    componentDidMount(){
+        this.setState({isStopwatchActive:true});
+    }
+
+    handleAnswer = () =>{
+        if( this.state.answer === this.state.correctAnswer ){
+            Alert.alert(
+                "Correct Answer",
+                "You submitted the correct answer!",
+                [
+                  { text: "Go back to levels", onPress: () => {this.props.navigation.navigate("Levels"), this.currentTime = StopWatch.formatTime(),console.log(this.currentTime)} }
+                ]
+              );
+        } else{
+            Alert.alert(
+                "Wrong Answer",
+                "The answer is incorrect!",
+                [
+                  { text: "Try again", onPress: () => this.setState({answer:""})}
+                ]
+              );
+        }
+    }
+
+    handleStopwatch(){
+        console.log(this.formatTime);
+    }
 
     render(){
         return(
@@ -23,9 +56,21 @@ export default class LevelOne extends React.Component{
                         </View>
                     </View>
                     <View style={{flex: 0.09, alignItems:'center', justifyContent:'center'}}>
-                        <Text style={{fontSize:35, color:'white', fontFamily:'bold-font'}}>00:10</Text>
+                        {/* <Text style={{fontSize:35, color:'white', fontFamily:'bold-font'}}>00:10</Text> */}
+                        <Stopwatch start={this.state.isStopwatchActive} options={{container: {
+    backgroundColor: 'transparent',
+    borderRadius: 5,
+
+  },
+  text: {
+    fontSize:35, color:'white', fontFamily:'bold-font'
+  }}}
+  
+  />
                     </View>
-                    <View style={{flex: 0.50, backgroundColor:'blue'}}></View>
+                    <View style={{flex: 0.50, alignItems:'center', justifyContent:'center'}}>
+                        <Image source={require("../app/images/level_1.png")} resizeMode = "contain" style ={{width:"100%", height:"100%"}}/>
+                    </View>
                     <View style={{flex: 0.10,  flexDirection:'row', marginHorizontal:"7%", alignItems:'center', justifyContent:'center'}}>
                         <View style={{flex: 0.60, flexDirection:'column', justifyContent:'flex-end', height:"70%"}}>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
@@ -42,7 +87,7 @@ export default class LevelOne extends React.Component{
                         <View style={{flexDirection:'row', alignItems:'center', borderWidth:2, borderTopWidth:0, borderLeftWidth:0, borderRightWidth:0,borderColor:'white', width:"97%"}}></View>
                         </View>
                             <View style={{flex:0.40}}>
-                                <Pressable style={{backgroundColor: '#F3A416', height:"70%", alignItems:'center', justifyContent:'center', marginLeft:"7%"}}  onPress={() => console.log("aaa")} >
+                                <Pressable style={{backgroundColor: '#F3A416', height:"70%", alignItems:'center', justifyContent:'center', marginLeft:"7%"}}  onPress={this.handleAnswer} >
                                     <Text style={{fontSize: 25, fontFamily:'bold-font', color:'white'}}>SUBMIT</Text>
                                 </Pressable>
                             </View>
