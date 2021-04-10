@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 import NumberCard from '../components/number-card';
-import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
-import StopWatch from '../node_modules/react-native-stopwatch-timer/lib/stopwatch';
-
+import { Stopwatch} from 'react-native-stopwatch-timer';
+ 
 export default class LevelOne extends React.Component{
+ 
+    #currentTime = "";
+ 
     constructor(){
         super();
         this.state = {
@@ -12,20 +14,21 @@ export default class LevelOne extends React.Component{
             isStopwatchActive: false,
             correctAnswer: '13'
         };
-        this.currentTime = "";
+ 
     };
-
+ 
     componentDidMount(){
         this.setState({isStopwatchActive:true});
     }
-
+ 
     handleAnswer = () =>{
         if( this.state.answer === this.state.correctAnswer ){
+            this.setState({isStopwatchActive:!this.state.isStopwatchActive})
             Alert.alert(
                 "Correct Answer",
                 "You submitted the correct answer!",
                 [
-                  { text: "Go back to levels", onPress: () => {this.props.navigation.navigate("Levels"), this.currentTime = StopWatch.formatTime(),console.log(this.currentTime)} }
+                  { text: "Go back to levels", onPress: () => {this.props.navigation.navigate("Levels"), console.log(this.#currentTime)} }
                 ]
               );
         } else{
@@ -38,11 +41,11 @@ export default class LevelOne extends React.Component{
               );
         }
     }
-
+ 
     handleStopwatch(){
         console.log(this.formatTime);
     }
-
+ 
     render(){
         return(
             <View style={{flex:1}}>
@@ -60,12 +63,13 @@ export default class LevelOne extends React.Component{
                         <Stopwatch start={this.state.isStopwatchActive} options={{container: {
     backgroundColor: 'transparent',
     borderRadius: 5,
-
+ 
   },
   text: {
     fontSize:35, color:'white', fontFamily:'bold-font'
   }}}
-  
+  getTime={(time)=> this.#currentTime = time}
+ 
   />
                     </View>
                     <View style={{flex: 0.50, alignItems:'center', justifyContent:'center'}}>
@@ -107,7 +111,7 @@ export default class LevelOne extends React.Component{
                             <NumberCard number={"8"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("8")})}/>
                             <NumberCard number={"9"} bgColor="#F3A416" onPress = {() => this.setState({answer: this.state.answer.concat("9")})}/>
                         </View>
-                        
+ 
                     </View>
                 </ImageBackground>
             </View>
