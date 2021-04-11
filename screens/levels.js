@@ -25,7 +25,8 @@ export default class Levels extends React.Component{
                         <View style={{height:"87%", justifyContent:'space-evenly'}}>
                             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
                                 <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelOne")}>
-                                    <LevelCard levelNumber={"1"} bgColor="#F3A416"/></TouchableOpacity>
+                                    <LevelCard levelNumber={"1"} bgColor="#F3A416"/>
+                                </TouchableOpacity>
                                 <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwo")}>
                                     <LevelCard levelNumber={"2"} bgColor="#875f18"/>
                                 </TouchableOpacity>
