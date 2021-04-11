@@ -8,6 +8,7 @@ import Menu from '../screens/menu';
 import Levels from '../screens/levels';
 import Help from '../screens/help';
 import LevelOne from '../screens/level-one';
+import LevelTwo from '../screens/level-two';
 
 const Stack = createStackNavigator();
 function AddIntoStack(){
@@ -40,9 +41,18 @@ function AddIntoStack(){
                 />
                 <Stack.Screen name="Help"
                     component={Help}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
                 />
                 <Stack.Screen name="LevelOne"
                     component={LevelOne}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelTwo"
+                    component={LevelTwo}
                     options={({navigation}) => ({
                         headerShown: false
                     })}
