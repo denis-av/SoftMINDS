@@ -28,7 +28,7 @@ export default class TrainingOne extends React.Component{
                 "Correct Answer",
                 "You submitted the correct answer!",
                 [
-                  { text: "Go back to levels", onPress: () => {this.props.navigation.navigate("TrainingTwo"), console.log(this.#currentTime)} }
+                  { text: "Go to next training level", onPress: () => {this.props.navigation.navigate("TrainingTwo"), console.log(this.#currentTime)} }
                 ]
               );
         } else{
@@ -55,7 +55,7 @@ export default class TrainingOne extends React.Component{
                                 <Image source={require("../app/images/back-2.png")} resizeMode = "center" style={{width:"35%", height:"35%"}}/>
                             </Pressable>
                         <View style={{flex: 0.50, height:"75%", alignItems:'center', justifyContent:'center'}}>
-                            <Text style={{fontSize: 40, color:"white", fontFamily:"bold-font"}}>TRAINING 1</Text>
+                            <Text style={{fontSize: 38, color:"white", fontFamily:"bold-font"}}>TRAINING 1</Text>
                         </View>
                     </View>
                     <View style={{flex: 0.09, alignItems:'center', justifyContent:'center'}}>
