@@ -32,7 +32,7 @@ export default class Menu extends React.Component{
                                     <Text style={{color:'white', fontFamily:'bold-font', fontSize:27, marginLeft:'10%'}}>RANKING</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{backgroundColor:'#F3A416', width:"80%",height:70, borderRadius:20}}>
+                            <TouchableOpacity style={{backgroundColor:'#F3A416', width:"80%",height:70, borderRadius:20}} onPress={()=>this.props.navigation.navigate("TrainingOne")}>
                                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-start', width:"100%",height:70, borderRadius:20, overflow:'hidden'}}>
                                     <Image source={require("../app/images/brain_icon.png")} style={{height:35,width:35, marginLeft:'15%'}} resizeMode='center'/>
                                     <Text style={{color:'white', fontFamily:'bold-font', fontSize:27, marginLeft:'10%'}}>TRAINING</Text>
