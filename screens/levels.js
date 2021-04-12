@@ -47,14 +47,26 @@ export default class Levels extends React.Component{
                                 </TouchableOpacity>
                             </View>
                             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
-                                <LevelCard levelNumber={"7"} bgColor="#875f18"/>
-                                <LevelCard levelNumber={"8"} bgColor="#875f18"/>
-                                <LevelCard levelNumber={"9"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelSeven")}>
+                                    <LevelCard levelNumber={"7"} bgColor="#875f18"/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelEight")}>
+                                    <LevelCard levelNumber={"8"} bgColor="#875f18"/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelNine")}>
+                                    <LevelCard levelNumber={"9"} bgColor="#875f18"/>
+                                </TouchableOpacity>
                             </View>
                             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
-                                <LevelCard levelNumber={"10"} bgColor="#875f18"/>
-                                <LevelCard levelNumber={"11"} bgColor="#875f18"/>
-                                <LevelCard levelNumber={"12"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTen")}>
+                                    <LevelCard levelNumber={"10"} bgColor="#875f18"/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelEleven")}>
+                                    <LevelCard levelNumber={"11"} bgColor="#875f18"/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwelve")}>
+                                    <LevelCard levelNumber={"12"} bgColor="#875f18"/>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
