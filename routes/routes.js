@@ -13,6 +13,13 @@ import LevelThree from '../screens/level-three';
 import LevelFour from '../screens/level-four';
 import LevelFive from '../screens/level-five';
 import LevelSix from '../screens/level-six';
+import LevelSeven from '../screens/level-seven';
+import LevelEight from '../screens/level-eight';
+import LevelNine from '../screens/level-nine';
+import LevelTen from '../screens/level-ten';
+import LevelEleven from '../screens/level-eleven';
+import LevelTwelve from '../screens/level-twelve';
+import Ranking from '../screens/ranking';
 
 const Stack = createStackNavigator();
 function AddIntoStack(){
@@ -81,6 +88,48 @@ function AddIntoStack(){
                 />
                 <Stack.Screen name="LevelSix"
                     component={LevelSix}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelSeven"
+                    component={LevelSeven}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelEight"
+                    component={LevelEight}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelNine"
+                    component={LevelNine}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelTen"
+                    component={LevelTen}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelEleven"
+                    component={LevelEleven}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="LevelTwelve"
+                    component={LevelTwelve}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="Ranking"
+                    component={Ranking}
                     options={({navigation}) => ({
                         headerShown: false
                     })}
