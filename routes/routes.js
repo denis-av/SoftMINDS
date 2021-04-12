@@ -13,6 +13,9 @@ import LevelThree from '../screens/level-three';
 import LevelFour from '../screens/level-four';
 import LevelFive from '../screens/level-five';
 import LevelSix from '../screens/level-six';
+import TrainingOne from '../screens/training-one';
+import TrainingTwo from '../screens/training-two';
+import TrainingThree from '../screens/training-three';
 
 const Stack = createStackNavigator();
 function AddIntoStack(){
@@ -81,6 +84,24 @@ function AddIntoStack(){
                 />
                 <Stack.Screen name="LevelSix"
                     component={LevelSix}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="TrainingOne"
+                    component={TrainingOne}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="TrainingTwo"
+                    component={TrainingTwo}
+                    options={({navigation}) => ({
+                        headerShown: false
+                    })}
+                />
+                <Stack.Screen name="TrainingThree"
+                    component={TrainingThree}
                     options={({navigation}) => ({
                         headerShown: false
                     })}
