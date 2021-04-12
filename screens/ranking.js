@@ -22,19 +22,54 @@ export default class Ranking extends React.Component{
                 </View>
                     <View style={{flex:0.57,flexDirection:'column', justifyContent:'space-around',alignItems:'center'}}>
                         <View style={{backgroundColor:'#F3A416', width:"80%",height:80, borderRadius:20, top:25, alignItems:'center'}}>
-                            
+                            <View style={{flex:1, flexDirection:'row',justifyContent:'space-around',width:"100%",height:"100%",alignItems:'center'}}>
+                                <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>1</Text>
+                                <View style={{left:-30}}>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#fff"}}>Player 1</Text>
+                                    <Text style={{fontFamily:'bold-font',fontSize:19, color:"#1a1a1a"}}>Master</Text>
+                                </View>
+                                <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>36</Text>
+                            </View>
                         </View>
                         <View style={{backgroundColor:'#F3A416', width:"80%",height:80, borderRadius:20, top:25, alignItems:'center'}}>
-                                        
+                            <View style={{flex:1, flexDirection:'row',justifyContent:'space-around',width:"100%",height:"100%",alignItems:'center'}}>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>1</Text>
+                                    <View style={{left:-30}}>
+                                        <Text style={{fontFamily:'bold-font',fontSize:25, color:"#fff"}}>Player 1</Text>
+                                        <Text style={{fontFamily:'bold-font',fontSize:19, color:"#1a1a1a"}}>Master</Text>
+                                    </View>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>36</Text>
+                                </View>   
                         </View>
                         <View style={{backgroundColor:'#F3A416', width:"80%",height:80, borderRadius:20, top:25, alignItems:'center'}}>
-                                        
+                            <View style={{flex:1, flexDirection:'row',justifyContent:'space-around',width:"100%",height:"100%",alignItems:'center'}}>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>1</Text>
+                                    <View style={{left:-30}}>
+                                        <Text style={{fontFamily:'bold-font',fontSize:25, color:"#fff"}}>Player 1</Text>
+                                        <Text style={{fontFamily:'bold-font',fontSize:19, color:"#1a1a1a"}}>Master</Text>
+                                    </View>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>36</Text>
+                                </View>           
                         </View>
                         <View style={{backgroundColor:'#F3A416', width:"80%",height:80, borderRadius:20, top:25, alignItems:'center'}}>
-                                        
-                        </View>
+                            <View style={{flex:1, flexDirection:'row',justifyContent:'space-around',width:"100%",height:"100%",alignItems:'center'}}>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>1</Text>
+                                    <View style={{left:-30}}>
+                                        <Text style={{fontFamily:'bold-font',fontSize:25, color:"#fff"}}>Player 1</Text>
+                                        <Text style={{fontFamily:'bold-font',fontSize:19, color:"#1a1a1a"}}>Master</Text>
+                                    </View>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>36</Text>
+                                </View>            
+                            </View>
                         <View style={{backgroundColor:'#F3A416', width:"80%",height:80, borderRadius:20, top:25, alignItems:'center'}}>
-                                       
+                            <View style={{flex:1, flexDirection:'row',justifyContent:'space-around',width:"100%",height:"100%",alignItems:'center'}}>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>1</Text>
+                                    <View style={{left:-30}}>
+                                        <Text style={{fontFamily:'bold-font',fontSize:25, color:"#fff"}}>Player 1</Text>
+                                        <Text style={{fontFamily:'bold-font',fontSize:19, color:"#1a1a1a"}}>Master</Text>
+                                    </View>
+                                    <Text style={{fontFamily:'bold-font',fontSize:25, color:"#1a1a1a"}}>36</Text>
+                                </View>              
                         </View>
                     </View>
                 </ImageBackground>
