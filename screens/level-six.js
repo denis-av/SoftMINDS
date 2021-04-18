@@ -61,16 +61,16 @@ export default class LevelSix extends React.Component{
                     <View style={{flex: 0.09, alignItems:'center', justifyContent:'center'}}>
                         {/* <Text style={{fontSize:35, color:'white', fontFamily:'bold-font'}}>00:10</Text> */}
                         <Stopwatch start={this.state.isStopwatchActive} options={{container: {
-    backgroundColor: 'transparent',
-    borderRadius: 5,
+                             backgroundColor: 'transparent',
+                            borderRadius: 5,
  
-  },
-  text: {
-    fontSize:35, color:'white', fontFamily:'bold-font'
-  }}}
-  getTime={(time)=> this.#currentTime = time}
+                            },
+                            text: {
+                                fontSize:35, color:'white', fontFamily:'bold-font'
+                            }}}
+                            getTime={(time)=> this.#currentTime = time}
  
-  />
+                        />
                     </View>
                     <View style={{flex: 0.50, alignItems:'center', justifyContent:'center'}}>
                         <Image source={require("../app/images/level_6.png")} resizeMode = "contain" style ={{width:"100%", height:"100%"}}/>
