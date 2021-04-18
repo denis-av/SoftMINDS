@@ -1,11 +1,23 @@
 import React from 'react';
 import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, TouchableHighlight} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default class Menu extends React.Component{
     constructor(){
         super();
-        this.state = {};
+        this.state = {
+            email: ""
+        };
+    }
+
+    async componentDidMount() {
+        try{
+            const value = await AsyncStorage.getItem("email");
+            if(value !== null) {
+                this.setState({email : value});
+            }
+        }catch(e){}
     }
 
     render(){
