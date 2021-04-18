@@ -21,9 +21,33 @@ export default class SignUp extends React.Component{
     SignUpPress = () => {
         firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
         .then(() => {
+            this.createIndividualTable();
             this.props.navigation.navigate('Login');
         })
         .catch(error => this.setState ({error : error.message}))
+    }
+
+    createIndividualTable = () => {
+        const username = this.state.email.split("@")[0].replace('.','').replace('_','');
+        const childPath = "/" + username;
+        //childPath = childPath.replace('_','');
+        firebase.database().ref("/users").child(childPath).set({
+            username: username,
+            levelOne: "",
+            levelTwo: "",
+            levelThree: "",
+            levelFour: "",
+            levelFive: "",
+            levelSix: "",
+            levelSeven: "",
+            levelEight: "",
+            levelNine: "",
+            levelTen: "",
+            levelEleven: "",
+            levelTwelve: ""
+        }).catch(function (error) {
+            console.log("Error:" + error.message);
+        })
     }
 
     render(){
