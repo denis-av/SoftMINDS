@@ -32,127 +32,148 @@ function AddIntoStack(){
                 <Stack.Screen name="SignUP" 
                               component={SignUp} 
                               options={({navigation}) => ({
-                                  headerShown: false
+                                  headerShown: false,
+                                  gestureEnabled: false
                               })}
                 />
                 <Stack.Screen name="Login"
                               component={Login}
                               options={({navigation}) => ({
-                                headerShown: false
+                                headerShown: false,
+                                gestureEnabled: false
                             })}
                 />
                 <Stack.Screen name="Menu"
                     component={Menu}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="Levels"
                     component={Levels}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="Help"
                     component={Help}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelOne"
                     component={LevelOne}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelTwo"
                     component={LevelTwo}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelThree"
                     component={LevelThree}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelFour"
                     component={LevelFour}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelFive"
                     component={LevelFive}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelSix"
                     component={LevelSix}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelSeven"
                     component={LevelSeven}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="TrainingOne"
                     component={TrainingOne}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelEight"
                     component={LevelEight}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="TrainingTwo"
                     component={TrainingTwo}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelNine"
                     component={LevelNine}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelTen"
                     component={LevelTen}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelEleven"
                     component={LevelEleven}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="LevelTwelve"
                     component={LevelTwelve}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="Ranking"
                     component={Ranking}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
                 <Stack.Screen name="TrainingThree"
                     component={TrainingThree}
                     options={({navigation}) => ({
-                        headerShown: false
+                        headerShown: false,
+                        gestureEnabled: false
                     })}
                 />
             </Stack.Navigator>
