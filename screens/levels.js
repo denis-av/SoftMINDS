@@ -1,12 +1,55 @@
 import React from 'react';
 import {ImageBackground, View, Text, Image, Pressable, TouchableOpacity} from 'react-native';
 import LevelCard from "../components/level-card";
+import * as firebase from "firebase";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class Levels extends React.Component{
+    
+    #email = "";
+
+    
+
     constructor(){
         super();
-        this.state={};
+        this.state={
+            statusLevelOne: "",
+            statusLevelTwo: "",
+        };
     };
+
+    componentDidMount(){
+        this.getCurrentUser();
+        this.getAvailableLevels();
+    }
+
+    getCurrentUser = async() => {
+        try{
+            const value = await AsyncStorage.getItem("email");
+            if(value !== null) {
+                this.#email = value;
+            }
+        }catch(e){ }
+    }
+
+    getAvailableLevels = () => {
+        
+        firebase.database().ref('/users').once('value').then((snapshot) => {
+            var tempLevelOne = "";
+            var tempLevelTwo = "";
+            snapshot.forEach( (childSnapshot) => {
+                if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
+                    //console.log(childSnapshot.val().levelOne);
+                    tempLevelOne = childSnapshot.val().levelOne;
+                    tempLevelTwo = childSnapshot.val().levelTwo;
+                }
+                
+            })
+            this.setState({ statusLevelOne : tempLevelOne,
+                            statusLevelTwo : tempLevelTwo
+                        });
+        })
+    }
 
     render(){
         return(
@@ -27,11 +70,11 @@ export default class Levels extends React.Component{
                                 <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelOne")} >
                                     <LevelCard levelNumber={"1"} bgColor="#F3A416"/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwo")} /*disabled={this.arrayLevels[0]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"2"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwo")} disabled={ this.state.statusLevelOne === "true" ? false : true } >
+                                    <LevelCard levelNumber={"2"} bgColor={this.state.statusLevelOne === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelThree")} /*disabled={this.arrayLevels[1]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"3"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelThree")} disabled={ this.state.statusLevelTwo === "true" ? false : true }>
+                                    <LevelCard levelNumber={"3"} bgColor={this.state.statusLevelTwo === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
                                 
                             </View>
