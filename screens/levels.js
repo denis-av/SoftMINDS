@@ -15,6 +15,15 @@ export default class Levels extends React.Component{
         this.state={
             statusLevelOne: "",
             statusLevelTwo: "",
+            statusLevelThree: "",
+            statusLevelFour: "",
+            statusLevelFive: "",
+            statusLevelSix: "",
+            statusLevelSeven: "",
+            statusLevelEight: "",
+            statusLevelNine: "",
+            statusLevelTen: "",
+            statusLevelEleven: "",
         };
     };
 
@@ -37,16 +46,42 @@ export default class Levels extends React.Component{
         firebase.database().ref('/users').once('value').then((snapshot) => {
             var tempLevelOne = "";
             var tempLevelTwo = "";
+            var tempLevelThree = "";
+            var tempLevelFour = "";
+            var tempLevelFive = "";
+            var tempLevelSix = "";
+            var tempLevelSeven = "";
+            var tempLevelEight = "";
+            var tempLevelNine = "";
+            var tempLevelTen = "";
+            var tempLevelEleven = "";
             snapshot.forEach( (childSnapshot) => {
                 if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
-                    //console.log(childSnapshot.val().levelOne);
                     tempLevelOne = childSnapshot.val().levelOne;
                     tempLevelTwo = childSnapshot.val().levelTwo;
+                    tempLevelThree = childSnapshot.val().levelThree;
+                    tempLevelFour = childSnapshot.val().levelFour;
+                    tempLevelFive = childSnapshot.val().levelFive;
+                    tempLevelSix = childSnapshot.val().levelSix;
+                    tempLevelSeven = childSnapshot.val().levelSeven;
+                    tempLevelEight = childSnapshot.val().levelEight;
+                    tempLevelNine = childSnapshot.val().levelNine;
+                    tempLevelTen = childSnapshot.val().levelTen;
+                    tempLevelEleven = childSnapshot.val().levelEleven;
                 }
                 
             })
             this.setState({ statusLevelOne : tempLevelOne,
-                            statusLevelTwo : tempLevelTwo
+                            statusLevelTwo : tempLevelTwo,
+                            statusLevelThree: tempLevelThree,
+                            statusLevelFour : tempLevelFour,
+                            statusLevelFive: tempLevelFive,
+                            statusLevelSix : tempLevelSix,
+                            statusLevelSeven : tempLevelSeven,
+                            statusLevelEight : tempLevelEight,
+                            statusLevelNine : tempLevelNine,
+                            statusLevelTen : tempLevelTen,
+                            statusLevelEleven : tempLevelEleven
                         });
         })
     }
@@ -79,36 +114,36 @@ export default class Levels extends React.Component{
                                 
                             </View>
                             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelFour")} /*disabled={this.arrayLevels[2]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"4"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelFour")} disabled={ this.state.statusLevelThree === "true" ? false : true }>
+                                    <LevelCard levelNumber={"4"} bgColor={this.state.statusLevelThree === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelFive")} /*disabled={this.arrayLevels[3]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"5"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelFive")} disabled={ this.state.statusLevelFour === "true" ? false : true }>
+                                    <LevelCard levelNumber={"5"} bgColor={this.state.statusLevelFour === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelSix")} /*disabled={this.arrayLevels[4]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"6"} bgColor="#875f18"/>
-                                </TouchableOpacity>
-                            </View>
-                            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelSeven")} /*disabled={this.arrayLevels[5]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"7"} bgColor="#875f18"/>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelEight")} /*disabled={this.arrayLevels[6]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"8"} bgColor="#875f18"/>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelNine")} /*disabled={this.arrayLevels[7]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"9"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelSix")} disabled={ this.state.statusLevelFive === "true" ? false : true }>
+                                    <LevelCard levelNumber={"6"} bgColor={this.state.statusLevelFive === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
                             </View>
                             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTen")} /*disabled={this.arrayLevels[8]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"10"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelSeven")} disabled={ this.state.statusLevelSix === "true" ? false : true }>
+                                    <LevelCard levelNumber={"7"} bgColor={this.state.statusLevelSix === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelEleven")} /*disabled={this.arrayLevels[9]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"11"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelEight")} disabled={ this.state.statusLevelSeven === "true" ? false : true }>
+                                    <LevelCard levelNumber={"8"} bgColor={this.state.statusLevelSeven === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwelve")} /*disabled={this.arrayLevels[10]==="true" ? false : true}*/>
-                                    <LevelCard levelNumber={"12"} bgColor="#875f18"/>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelNine")} disabled={ this.state.statusLevelEight === "true" ? false : true }>
+                                    <LevelCard levelNumber={"9"} bgColor={this.state.statusLevelEight === "true" ? "#F3A416" : "#875f18"}/>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTen")} disabled={ this.state.statusLevelNine === "true" ? false : true }>
+                                    <LevelCard levelNumber={"10"} bgColor={this.state.statusLevelNine === "true" ? "#F3A416" : "#875f18"}/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelEleven")} disabled={ this.state.statusLevelTen === "true" ? false : true }>
+                                    <LevelCard levelNumber={"11"} bgColor={this.state.statusLevelTen === "true" ? "#F3A416" : "#875f18"}/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwelve")} disabled={ this.state.statusLevelEleven === "true" ? false : true }>
+                                    <LevelCard levelNumber={"12"} bgColor={this.state.statusLevelEleven === "true" ? "#F3A416" : "#875f18"}/>
                                 </TouchableOpacity>
                             </View>
                         </View>
