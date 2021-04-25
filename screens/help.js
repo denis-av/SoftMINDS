@@ -13,13 +13,13 @@ const slides = [
   {
     key: "two",
     title: "SCORING SYSTEM",
-    text: "Above each given problem which consists of an image there is a timer, dependig on the time it takes toy to solve, you will recevie a certain score: 3 points under 1 minute, 2 points under 2 minutes, 1 point under 3 minutes, 0 points above 3 minutes.",
+    text: "Above each given problem which consists of an image there is a timer, dependig on the time it takes toy to solve, you will recevie a certain score: 3 points under 30 seconds, 2 points under 1 minute, 1 point under 2 minutes, 0 points above 2 minutes.",
     image: require('../app/images/scoring_system_icon.png'),
   },
   {
     key: "three",
     title: "RANKING PROCEDURE",
-    text: "Into the ranking screen you will find the best players together with the total score abtained by them. There are 3 types oftiers: newbie (under 12 points), intermediate (starting from 12 points to 23), master (starting from 24 points).",
+    text: "Into the ranking screen you will find the best players together with the total score obtained by them. There are 3 types of tiers: newbie (under 12 points), intermediate (starting from 12 points to 23), master (starting from 24 points).",
     image: require('../app/images/ranking_procedure_icon.png'),
   },
 ];

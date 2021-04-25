@@ -15,7 +15,8 @@ export default class LevelOne extends React.Component{
         this.state = {
             answer: "",
             isStopwatchActive: false,
-            correctAnswer: '13'
+            correctAnswer: '13',
+            userScore: 0,
         };
  
     };
@@ -23,6 +24,20 @@ export default class LevelOne extends React.Component{
    componentDidMount(){
         this.setState({isStopwatchActive:true});
         this.getCurrentUser();
+        this.getCurrentUserPoints();
+    }
+
+    getCurrentUserPoints = () => {
+        firebase.database().ref('/ranking').once('value').then((snapshot) => {
+            var tempTotalScore = 0;
+            snapshot.forEach( (childSnapshot) => {
+                if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
+                    tempTotalScore = childSnapshot.val().score;
+                }
+            })
+            this.setState({userScore: tempTotalScore});
+            console.log(this.state.userScore);
+        })
     }
 
     getCurrentUser = async() => {
@@ -35,7 +50,8 @@ export default class LevelOne extends React.Component{
     }
  
     handleAnswer = () =>{
-        const username = this.#email.split("@")[0].replace('.','').replace('_','');
+        var username = this.#email.split("@")[0].replace('.','').replace('_','');
+        var points = 0;
         if( this.state.answer === this.state.correctAnswer ){
             this.setState({isStopwatchActive:!this.state.isStopwatchActive})
             firebase.database().ref("/users").child(username).set({
@@ -52,6 +68,21 @@ export default class LevelOne extends React.Component{
                 levelTen: "",
                 levelEleven: "",
                 levelTwelve: ""
+            })
+
+            if( this.#currentTime.localeCompare("00:30") < 0 ){
+                points = 3;
+            }else if( (this.#currentTime.localeCompare("00:30") > 0) && (this.#currentTime.localeCompare("01:00") < 0)){
+                points = 2;
+            }else if((this.#currentTime.localeCompare("01:00") > 0) && (this.#currentTime.localeCompare("02:00") < 0)){
+                points = 1;
+            }else if(this.#currentTime.localeCompare("02:00") >0 ){
+                points = 0;
+            }
+
+            firebase.database().ref("/ranking").child(username).update({
+                username: username,
+                score: points + this.state.userScore,
             })
             Alert.alert(
                 "Correct Answer",
