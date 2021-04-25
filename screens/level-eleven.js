@@ -2,10 +2,13 @@ import React from 'react';
 import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 import NumberCard from '../components/number-card';
 import { Stopwatch} from 'react-native-stopwatch-timer';
+import * as firebase from "firebase";
+import AsyncStorage from '@react-native-async-storage/async-storage';
  
 export default class LevelEleven extends React.Component{
  
     #currentTime = "";
+    #email = "";
  
     constructor(){
         super();
@@ -19,16 +22,42 @@ export default class LevelEleven extends React.Component{
  
     componentDidMount(){
         this.setState({isStopwatchActive:true});
+        this.getCurrentUser();
+    }
+
+    getCurrentUser = async() => {
+        try{
+            const value = await AsyncStorage.getItem("email");
+            if(value !== null) {
+                this.#email = value;
+            }
+        }catch(e){ }
     }
  
     handleAnswer = () =>{
+        const username = this.#email.split("@")[0].replace('.','').replace('_','');
         if( this.state.answer === this.state.correctAnswer ){
             this.setState({isStopwatchActive:!this.state.isStopwatchActive})
+            firebase.database().ref("/users").child(username).set({
+                username: username,
+                levelOne: "true",
+                levelTwo: "true",
+                levelThree: "true",
+                levelFour: "true",
+                levelFive: "true",
+                levelSix: "true",
+                levelSeven: "true",
+                levelEight: "true",
+                levelNine: "true",
+                levelTen: "true",
+                levelEleven: "true",
+                levelTwelve: ""
+            })
             Alert.alert(
                 "Correct Answer",
                 "You submitted the correct answer!",
                 [
-                  { text: "Go back to levels", onPress: () => {this.props.navigation.navigate("Levels"), console.log(this.#currentTime)} }
+                  { text: "Go back to levels", onPress: () => {this.props.navigation.reset({index:0, routes:[{name:'Levels'}]}) }}
                 ]
               );
         } else{
