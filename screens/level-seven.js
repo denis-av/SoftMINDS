@@ -36,7 +36,6 @@ export default class LevelSeven extends React.Component{
                 }
             })
             this.setState({userScore: tempTotalScore});
-            console.log(this.state.userScore);
         })
     }
  

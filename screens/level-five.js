@@ -36,7 +36,6 @@ export default class LevelFive extends React.Component{
                 }
             })
             this.setState({userScore: tempTotalScore});
-            console.log(this.state.userScore);
         })
     }
 
