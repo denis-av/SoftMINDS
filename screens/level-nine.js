@@ -15,7 +15,8 @@ export default class LevelNine extends React.Component{
         this.state = {
             answer: "",
             isStopwatchActive: false,
-            correctAnswer: '61'
+            correctAnswer: '61',
+            userScore: 0,
         };
  
     };
@@ -23,6 +24,19 @@ export default class LevelNine extends React.Component{
     componentDidMount(){
         this.setState({isStopwatchActive:true});
         this.getCurrentUser();
+        this.getCurrentUserPoints();
+    }
+
+    getCurrentUserPoints = () => {
+        firebase.database().ref('/ranking').once('value').then((snapshot) => {
+            var tempTotalScore = 0;
+            snapshot.forEach( (childSnapshot) => {
+                if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
+                    tempTotalScore = childSnapshot.val().score;
+                }
+            })
+            this.setState({userScore: tempTotalScore});
+        })
     }
 
     getCurrentUser = async() => {
@@ -53,6 +67,22 @@ export default class LevelNine extends React.Component{
                 levelEleven: "",
                 levelTwelve: ""
             })
+
+            if( this.#currentTime.localeCompare("00:30") < 0 ){
+                points = 3;
+            }else if( (this.#currentTime.localeCompare("00:30") > 0) && (this.#currentTime.localeCompare("01:00") < 0)){
+                points = 2;
+            }else if((this.#currentTime.localeCompare("01:00") > 0) && (this.#currentTime.localeCompare("02:00") < 0)){
+                points = 1;
+            }else if(this.#currentTime.localeCompare("02:00") >0 ){
+                points = 0;
+            }
+
+            firebase.database().ref("/ranking").child(username).update({
+                username: username,
+                score: points + this.state.userScore,
+            })
+
             Alert.alert(
                 "Correct Answer",
                 "You submitted the correct answer!",
