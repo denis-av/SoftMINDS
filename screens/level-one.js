@@ -2,33 +2,93 @@ import React from 'react';
 import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 import NumberCard from '../components/number-card';
 import { Stopwatch} from 'react-native-stopwatch-timer';
+import * as firebase from "firebase";
+import AsyncStorage from '@react-native-async-storage/async-storage';
  
 export default class LevelOne extends React.Component{
  
     #currentTime = "";
+    #email = "";
  
     constructor(){
         super();
         this.state = {
             answer: "",
             isStopwatchActive: false,
-            correctAnswer: '13'
+            correctAnswer: '13',
+            userScore: 0,
         };
  
     };
  
-    componentDidMount(){
+   componentDidMount(){
         this.setState({isStopwatchActive:true});
+        this.getCurrentUser();
+        this.getCurrentUserPoints();
+    }
+
+    getCurrentUserPoints = () => {
+        firebase.database().ref('/ranking').once('value').then((snapshot) => {
+            var tempTotalScore = 0;
+            snapshot.forEach( (childSnapshot) => {
+                if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
+                    tempTotalScore = childSnapshot.val().score;
+                }
+            })
+            this.setState({userScore: tempTotalScore});
+            console.log(this.state.userScore);
+        })
+    }
+
+    getCurrentUser = async() => {
+        try{
+            const value = await AsyncStorage.getItem("email");
+            if(value !== null) {
+                this.#email = value;
+            }
+        }catch(e){ }
     }
  
     handleAnswer = () =>{
+        var username = this.#email.split("@")[0].replace('.','').replace('_','');
+        var points = 0;
         if( this.state.answer === this.state.correctAnswer ){
             this.setState({isStopwatchActive:!this.state.isStopwatchActive})
+            firebase.database().ref("/users").child(username).set({
+                username: username,
+                levelOne: "true",
+                levelTwo: "",
+                levelThree: "",
+                levelFour: "",
+                levelFive: "",
+                levelSix: "",
+                levelSeven: "",
+                levelEight: "",
+                levelNine: "",
+                levelTen: "",
+                levelEleven: "",
+                levelTwelve: ""
+            })
+
+            if( this.#currentTime.localeCompare("00:30") < 0 ){
+                points = 3;
+            }else if( (this.#currentTime.localeCompare("00:30") > 0) && (this.#currentTime.localeCompare("01:00") < 0)){
+                points = 2;
+            }else if((this.#currentTime.localeCompare("01:00") > 0) && (this.#currentTime.localeCompare("02:00") < 0)){
+                points = 1;
+            }else if(this.#currentTime.localeCompare("02:00") >0 ){
+                points = 0;
+            }
+
+            firebase.database().ref("/ranking").child(username).update({
+                username: username,
+                score: points + this.state.userScore,
+            })
             Alert.alert(
                 "Correct Answer",
                 "You submitted the correct answer!",
                 [
-                  { text: "Go back to levels", onPress: () => {this.props.navigation.navigate("Levels"), console.log(this.#currentTime)} }
+                    { text: "Go back to levels", onPress: () => {this.props.navigation.reset({index:0, routes:[{name:'Levels'}]}) }}
                 ]
               );
         } else{
