@@ -29,7 +29,7 @@ export default class TrainingThree extends React.Component{
                 "You submitted the correct answer! This was the last training level.",
             
                 [
-                  { text: "Go to menu page", onPress: () => {this.props.navigation.navigate("Menu"), console.log(this.#currentTime)} }
+                  { text: "Go to menu page", onPress: () => {this.props.navigation.navigate("Menu")} }
                 ]
               );
         } else{

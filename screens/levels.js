@@ -1,8 +1,11 @@
 import React from 'react';
-import {ImageBackground, View, Text, Image, Pressable, TouchableOpacity} from 'react-native';
+import {ImageBackground, View, Text, Image, Pressable, TouchableOpacity, LogBox} from 'react-native';
 import LevelCard from "../components/level-card";
 import * as firebase from "firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
 
 export default class Levels extends React.Component{
     
@@ -24,6 +27,7 @@ export default class Levels extends React.Component{
             statusLevelNine: "",
             statusLevelTen: "",
             statusLevelEleven: "",
+            statusLevelTwelve: "",
         };
     };
 
@@ -55,6 +59,7 @@ export default class Levels extends React.Component{
             var tempLevelNine = "";
             var tempLevelTen = "";
             var tempLevelEleven = "";
+            var tempLevelTwelve = "";
             snapshot.forEach( (childSnapshot) => {
                 if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
                     tempLevelOne = childSnapshot.val().levelOne;
@@ -68,6 +73,7 @@ export default class Levels extends React.Component{
                     tempLevelNine = childSnapshot.val().levelNine;
                     tempLevelTen = childSnapshot.val().levelTen;
                     tempLevelEleven = childSnapshot.val().levelEleven;
+                    tempLevelTwelve = childSnapshot.val().levelTwelve;
                 }
                 
             })
@@ -81,7 +87,8 @@ export default class Levels extends React.Component{
                             statusLevelEight : tempLevelEight,
                             statusLevelNine : tempLevelNine,
                             statusLevelTen : tempLevelTen,
-                            statusLevelEleven : tempLevelEleven
+                            statusLevelEleven : tempLevelEleven,
+                            statusLevelTwelve: tempLevelTwelve
                         });
         })
     }

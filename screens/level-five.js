@@ -1,9 +1,12 @@
 import React from 'react';
-import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert, LogBox} from 'react-native';
 import NumberCard from '../components/number-card';
 import { Stopwatch} from 'react-native-stopwatch-timer';
 import * as firebase from "firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
  
 export default class LevelFive extends React.Component{
  

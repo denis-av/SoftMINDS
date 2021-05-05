@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar} from 'react-native';
+import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, LogBox} from 'react-native';
 import * as firebase from "firebase";
 
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
 
 export default class SignUp extends React.Component{
     constructor(){
