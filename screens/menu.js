@@ -11,7 +11,11 @@ export default class Menu extends React.Component{
         };
     }
 
-    async componentDidMount() {
+   componentDidMount() {
+        this.handleGetEmail();
+    }
+
+    handleGetEmail = async() =>{
         try{
             const value = await AsyncStorage.getItem("email");
             if(value !== null) {
@@ -26,7 +30,7 @@ export default class Menu extends React.Component{
                 <StatusBar barStyle={"light-content"}/>
                 <ImageBackground  source={require("../app/images/bg2.jpeg")} style={{width: "100%", height: "100%"}}> 
                 <View style={{flex:0.10, width:"30%", justifyContent:'flex-end', marginHorizontal:"25%", marginLeft:"-5%", marginTop:"3%"}}>
-                    <TouchableOpacity style={{justifyContent:'center', alignItems:'center'}} onPress={() => this.props.navigation.navigate("Login")}>
+                    <TouchableOpacity style={{justifyContent:'center', alignItems:'center'}} onPress={() => this.props.navigation.reset({index:0, routes:[{name:'Login'}]})}>
                             <Image source={require("../app/images/logout_icon.png")} style={{width: "57%", height: "57%"}} resizeMode='contain'/>
                     </TouchableOpacity>
                 </View>

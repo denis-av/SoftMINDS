@@ -24,6 +24,7 @@ export default class Levels extends React.Component{
             statusLevelNine: "",
             statusLevelTen: "",
             statusLevelEleven: "",
+            statusLevelTwelve: "",
         };
     };
 
@@ -55,6 +56,7 @@ export default class Levels extends React.Component{
             var tempLevelNine = "";
             var tempLevelTen = "";
             var tempLevelEleven = "";
+            var tempLevelTwelve = "";
             snapshot.forEach( (childSnapshot) => {
                 if(childSnapshot.val().username === this.#email.split("@")[0].replace('.','').replace('_','')){
                     tempLevelOne = childSnapshot.val().levelOne;
@@ -68,6 +70,7 @@ export default class Levels extends React.Component{
                     tempLevelNine = childSnapshot.val().levelNine;
                     tempLevelTen = childSnapshot.val().levelTen;
                     tempLevelEleven = childSnapshot.val().levelEleven;
+                    tempLevelTwelve = childSnapshot.val().levelTwelve;
                 }
                 
             })
@@ -81,7 +84,8 @@ export default class Levels extends React.Component{
                             statusLevelEight : tempLevelEight,
                             statusLevelNine : tempLevelNine,
                             statusLevelTen : tempLevelTen,
-                            statusLevelEleven : tempLevelEleven
+                            statusLevelEleven : tempLevelEleven,
+                            statusLevelTwelve: tempLevelTwelve
                         });
         })
     }

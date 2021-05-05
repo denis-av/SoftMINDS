@@ -28,7 +28,7 @@ export default class TrainingOne extends React.Component{
                 "Correct Answer",
                 "You submitted the correct answer!",
                 [
-                  { text: "Go to next training level", onPress: () => {this.props.navigation.navigate("TrainingTwo"), console.log(this.#currentTime)} }
+                  { text: "Go to next training level", onPress: () => {this.props.navigation.navigate("TrainingTwo")} }
                 ]
               );
         } else{

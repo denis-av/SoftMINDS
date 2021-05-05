@@ -13,6 +13,10 @@ export default class Login extends React.Component{
         };
     }
 
+    componentDidMount(){
+        this.storeData();
+    }
+
     handleEmail = (text) => {this.setState({email: text})};
     handlePassword = (text) => {this.setState({password: text})};
 
