@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, TouchableHighlight} from 'react-native';
+import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, TouchableHighlight, LogBox} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
 
 export default class Menu extends React.Component{
     constructor(){
