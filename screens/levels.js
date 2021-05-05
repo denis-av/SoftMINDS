@@ -1,8 +1,11 @@
 import React from 'react';
-import {ImageBackground, View, Text, Image, Pressable, TouchableOpacity} from 'react-native';
+import {ImageBackground, View, Text, Image, Pressable, TouchableOpacity, LogBox} from 'react-native';
 import LevelCard from "../components/level-card";
 import * as firebase from "firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
 
 export default class Levels extends React.Component{
     

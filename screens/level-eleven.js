@@ -5,7 +5,8 @@ import { Stopwatch} from 'react-native-stopwatch-timer';
 import * as firebase from "firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
  
 export default class LevelEleven extends React.Component{
  

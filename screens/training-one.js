@@ -1,7 +1,10 @@
 import React from 'react';
-import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpacity, Alert, LogBox} from 'react-native';
 import NumberCard from '../components/number-card';
 import { Stopwatch} from 'react-native-stopwatch-timer';
+
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
  
 export default class TrainingOne extends React.Component{
  

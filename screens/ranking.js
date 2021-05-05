@@ -1,6 +1,9 @@
 import React from 'react';
-import {ImageBackground, View, Text, Image, Pressable} from 'react-native';
+import {ImageBackground, View, Text, Image, Pressable, LogBox} from 'react-native';
 import * as firebase from "firebase";
+
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning: ...']);
 
 export default class Ranking extends React.Component{
     constructor(){
