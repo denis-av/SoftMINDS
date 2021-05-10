@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, LogBox} from 'react-native';
+import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, LogBox, Alert} from 'react-native';
 import * as firebase from "firebase";
 
 LogBox.ignoreAllLogs();
