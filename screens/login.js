@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, LogBox} from 'react-native';
+import {View, TouchableOpacity, Text,Pressable,Image, ImageBackground, TextInput, StatusBar, LogBox,Alert} from 'react-native';
 import * as firebase from "firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -34,7 +34,14 @@ export default class Login extends React.Component{
         .then(() => {
             this.props.navigation.navigate('Menu');
         })
-        .catch(error => this.setState ({error : error.message}))
+        .catch(error => Alert.alert("Error",
+                        error.message,
+                        [
+                            {
+                                text:'Ok',
+                                onPress: () => this.props.navigation.navigate("Login")
+                            }
+                        ]))
         this.storeData();
     }
 

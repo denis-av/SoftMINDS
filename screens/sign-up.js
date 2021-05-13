@@ -26,7 +26,14 @@ export default class SignUp extends React.Component{
             this.createIndividualTable();
             this.props.navigation.navigate('Login');
         })
-        .catch(error => this.setState ({error : error.message}))
+        .catch(error => Alert.alert("Error",
+                                    error.message,
+                                    [
+                                        {
+                                            text:'Ok',
+                                            onPress: () => this.props.navigation.navigate("SignUP")
+                                        }
+                                    ]))
     }
 
     createIndividualTable = () => {
