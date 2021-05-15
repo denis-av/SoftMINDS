@@ -6,6 +6,7 @@ LogBox.ignoreAllLogs();
 LogBox.ignoreLogs(['Warning: ...']);
 
 export default class Ranking extends React.Component{
+    static _firstPlaceScore ;
     constructor(){
         super();
         this.rankingSortedArray = [];
@@ -49,8 +50,11 @@ export default class Ranking extends React.Component{
         };
     };
 
+
     componentDidMount(){
         this.handleGetRanking();
+        Ranking.set_firstPlaceScore();
+        Ranking.get_firstPlaceScore();
     }
 
     handleGetRanking = () => {
@@ -74,7 +78,7 @@ export default class Ranking extends React.Component{
             tempArray.sort( (a, b) => (a.score > b.score) ? -1 : 1 );
 
             this.firstPlace.score = tempArray[0].score;
-            this.firstPlace.username = tempArray[0].username; 
+            this.firstPlace.username = tempArray[0].username;
 
             this.secondPlace.score = tempArray[1].score;
             this.secondPlace.username = tempArray[1].username;
@@ -91,6 +95,7 @@ export default class Ranking extends React.Component{
            this.setState({
                firstPlaceScore:this.firstPlace.score,
                firstPlaceUsername:this.firstPlace.username,
+               _firstPlaceScore:this.firstPlace.score,
            
                secondPlaceScore:this.secondPlace.score,
                secondPlaceUsername:this.secondPlace.username,
@@ -108,6 +113,13 @@ export default class Ranking extends React.Component{
         })
     }
 
+    static set_firstPlaceScore(){
+        this._firstPlaceScore = this.firstPlaceScore;
+    }
+    static get_firstPlaceScore(){
+        return Ranking._firstPlaceScore;
+    }
+
     render(){
         return(
             <View style={{flex: 1}}>
@@ -117,7 +129,7 @@ export default class Ranking extends React.Component{
                             <Image source={require("../app/images/back-2.png")} resizeMode = "center" style={{width:"35%", height:"35%"}}/>
                         </Pressable>
                     <View style={{flex: 0.50, height:"75%", alignItems:'center', justifyContent:'center'}}>
-                        <Text style={{fontSize: 40, color:"white", fontFamily:"bold-font"}}>RANKING</Text>
+                        <Text style={{fontSize: 40, color:"white", fontFamily:"bold-font"}}>{this._firstPlaceScore}</Text>
                     </View>
                 </View>
                     <View style={{flex:0.57,flexDirection:'column', justifyContent:'space-around',alignItems:'center'}}>
