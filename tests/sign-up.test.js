@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const navigation = {navigate: jest.fn()};
 
-test('renders correctly', () => {
+test('renders correctly the snapshot', () => {
   const tree = renderer.create(<SignUp />).toJSON();
   expect(tree).toMatchSnapshot();
 });
