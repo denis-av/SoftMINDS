@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.3,
+          "marginTop": 70,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "height": "70%",
+            "width": "70%",
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.3,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 0.33,
+            "justifyContent": "center",
+            "marginHorizontal": "10%",
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "borderColor": "white",
+              "borderLeftWidth": 0,
+              "borderRightWidth": 0,
+              "borderTopWidth": 0,
+              "borderWidth": 2,
+              "flexDirection": "row",
+              "height": "50%",
+            }
+          }
+        >
+          <Image
+            resizeMode="contain"
+            source={1}
+            style={
+              Object {
+                "height": "45%",
+                "marginLeft": "-17%",
+                "width": "45%",
+              }
+            }
+          />
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            placeholder="Email"
+            placeholderTextColor="white"
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "white",
+                "fontFamily": "bold-font",
+                "fontSize": 19,
+                "marginLeft": "-11%",
+              }
+            }
+            test-id="login-input"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 0.33,
+            "justifyContent": "center",
+            "marginHorizontal": "10%",
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "borderColor": "white",
+              "borderLeftWidth": 0,
+              "borderRightWidth": 0,
+              "borderTopWidth": 0,
+              "borderWidth": 2,
+              "flexDirection": "row",
+              "height": "50%",
+            }
+          }
+        >
+          <Image
+            resizeMode="contain"
+            source={1}
+            style={
+              Object {
+                "height": "60%",
+                "marginLeft": "-24%",
+                "width": "60%",
+              }
+            }
+          />
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            placeholder="Password"
+            placeholderTextColor="white"
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            style={
+              Object {
+                "color": "white",
+                "fontFamily": "bold-font",
+                "fontSize": 19,
+                "marginLeft": "-19%",
+              }
+            }
+            test-id="login-input-pass"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 0.1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#F3A416",
+            "borderRadius": 30,
+            "height": 47,
+            "justifyContent": "center",
+            "marginHorizontal": "25%",
+            "width": "50%",
+          }
+        }
+        test-id="press-button"
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": "bold-font",
+              "fontSize": 17,
+            }
+          }
+        >
+          REGISTER
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.1,
+          "justifyContent": "center",
+          "marginHorizontal": "25%",
+          "width": "50%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": "normal-font",
+              "fontSize": 16,
+            }
+          }
+        >
+          Already have an account?
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": "bold-font",
+              "fontSize": 17,
+            }
+          }
+        >
+          LOGIN
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
