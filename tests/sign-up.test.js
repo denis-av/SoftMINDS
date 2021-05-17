@@ -73,7 +73,7 @@ describe('SignUP', () => {
 })
 
 describe('SignUP', () => {
-  it('check if the password is not empty after initialization', () => {
+  it('check if the password is not empty after the initialization', () => {
     const wrapper = shallow(<SignUp />);
     const instance = wrapper.instance();
 
