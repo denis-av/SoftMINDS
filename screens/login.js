@@ -6,6 +6,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 LogBox.ignoreAllLogs();
 LogBox.ignoreLogs(['Warning: ...']);
 
+export const findByTestAttr=(component, attr) => {
+    const wrapper = component.find(`[test-id='${attr}']`);
+    return wrapper;
+}
+
 export default class Login extends React.Component{
     constructor(){
         super();
@@ -59,7 +64,7 @@ export default class Login extends React.Component{
                     <View style={{flex: 0.33, width:"80%", marginHorizontal:"10%", justifyContent:'center'}}>
                             <View style={{flexDirection:'row', alignItems:'center', borderWidth:2, borderTopWidth:0, borderLeftWidth:0, borderRightWidth:0, height:"50%",borderColor:'white'}}>
                                 <Image source={require("../app/images/email.png")} resizeMode='contain' style={{width:"45%", height:"45%", marginLeft:"-17%"}}/>
-                                <TextInput placeholder="Email" 
+                                <TextInput test-id='testInputUsername' placeholder="Email" 
                                         placeholderTextColor="white"
                                         style={{color: 'white', marginLeft:"-11%",fontSize:19, fontFamily:'bold-font'}}
                                         value={this.state.email}
@@ -70,7 +75,7 @@ export default class Login extends React.Component{
                         <View style={{flex: 0.33, width:"80%", marginHorizontal:"10%", justifyContent:'center'}}>
                             <View style={{flexDirection:'row', alignItems:'center', borderWidth:2, borderTopWidth:0, borderLeftWidth:0, borderRightWidth:0, height:"50%",borderColor:'white'}}>
                                 <Image source={require("../app/images/password.png")} resizeMode='contain' style={{width:"60%", height:"60%", marginLeft:"-24%"}}/>
-                                <TextInput placeholder="Password" 
+                                <TextInput test-id='testInputPassword' placeholder="Password" 
                                         placeholderTextColor="white"
                                         secureTextEntry={true}
                                         style={{color: 'white', marginLeft:"-19%",fontSize:19, fontFamily:'bold-font'}}
@@ -81,9 +86,9 @@ export default class Login extends React.Component{
                         </View>
                  </View>
                  <View style={{flex:0.10, justifyContent:'center'}}>
-                    <Pressable style={{backgroundColor: '#F3A416', alignItems:'center', width:"50%", marginHorizontal:"25%", height:47, justifyContent:'center', borderRadius:30}}
+                    <Pressable test-id="press-button" style={{backgroundColor: '#F3A416', alignItems:'center', width:"50%", marginHorizontal:"25%", height:47, justifyContent:'center', borderRadius:30}}
                                onPress={this.LoginPress} > 
-                        <Text style={{color:'white', fontFamily:'bold-font', fontSize:17}}>LOGIN</Text>
+                        <Text  style={{color:'white', fontFamily:'bold-font', fontSize:17}}>LOGIN</Text>
                     </Pressable>
                  </View>
                  <View style={{flex:0.10, width:"50%", alignItems:'center', justifyContent:'center', marginHorizontal:"25%"}}>

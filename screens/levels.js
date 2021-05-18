@@ -7,11 +7,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 LogBox.ignoreAllLogs();
 LogBox.ignoreLogs(['Warning: ...']);
 
+
 export default class Levels extends React.Component{
     
     #email = "";
-
-    
 
     constructor(){
         super();
@@ -109,7 +108,7 @@ export default class Levels extends React.Component{
                     <View  style={{flex: 0.77, justifyContent:'center'}}>
                         <View style={{height:"87%", justifyContent:'space-evenly'}}>
                             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelOne")} disabled={this.state.statusLevelOne === "true" ? true : false} >
+                                <TouchableOpacity  onPress={() => this.props.navigation.navigate("LevelOne")} disabled={this.state.statusLevelOne === "true" ? true : false} >
                                     <LevelCard levelNumber={"1"} bgColor="#F3A416"/>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => this.props.navigation.navigate("LevelTwo")} disabled={ this.state.statusLevelTwo === "true" ? true : this.state.statusLevelOne === "true" ? false : true } >
