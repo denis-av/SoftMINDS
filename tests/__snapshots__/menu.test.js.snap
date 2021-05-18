@@ -1,0 +1,379 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 0.1,
+          "justifyContent": "flex-end",
+          "marginHorizontal": "25%",
+          "marginLeft": "-5%",
+          "marginTop": "3%",
+          "width": "30%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={1}
+          style={
+            Object {
+              "height": "57%",
+              "width": "57%",
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.8,
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "marginHorizontal": "13%",
+          "width": "74%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": "60%",
+            "justifyContent": "space-around",
+            "marginBottom": "10%",
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#F3A416",
+              "borderRadius": 20,
+              "height": 70,
+              "opacity": 1,
+              "width": "80%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderRadius": 20,
+                "flexDirection": "row",
+                "height": 70,
+                "justifyContent": "flex-start",
+                "overflow": "hidden",
+                "width": "100%",
+              }
+            }
+          >
+            <Image
+              resizeMode="center"
+              source={1}
+              style={
+                Object {
+                  "height": 35,
+                  "marginLeft": "15%",
+                  "width": 35,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontFamily": "bold-font",
+                  "fontSize": 27,
+                  "marginLeft": "10%",
+                }
+              }
+            >
+              LEVELS
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#F3A416",
+              "borderRadius": 20,
+              "height": 70,
+              "opacity": 1,
+              "width": "80%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderRadius": 20,
+                "flexDirection": "row",
+                "height": 70,
+                "justifyContent": "flex-start",
+                "overflow": "hidden",
+                "width": "100%",
+              }
+            }
+          >
+            <Image
+              resizeMode="center"
+              source={1}
+              style={
+                Object {
+                  "height": 35,
+                  "marginLeft": "15%",
+                  "width": 35,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontFamily": "bold-font",
+                  "fontSize": 27,
+                  "marginLeft": "10%",
+                }
+              }
+            >
+              RANKING
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#F3A416",
+              "borderRadius": 20,
+              "height": 70,
+              "opacity": 1,
+              "width": "80%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderRadius": 20,
+                "flexDirection": "row",
+                "height": 70,
+                "justifyContent": "flex-start",
+                "overflow": "hidden",
+                "width": "100%",
+              }
+            }
+          >
+            <Image
+              resizeMode="center"
+              source={1}
+              style={
+                Object {
+                  "height": 35,
+                  "marginLeft": "15%",
+                  "width": 35,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontFamily": "bold-font",
+                  "fontSize": 27,
+                  "marginLeft": "10%",
+                }
+              }
+            >
+              TRAINING
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#F3A416",
+              "borderRadius": 20,
+              "height": 70,
+              "opacity": 1,
+              "width": "80%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderRadius": 20,
+                "flexDirection": "row",
+                "height": 70,
+                "justifyContent": "flex-start",
+                "overflow": "hidden",
+                "width": "100%",
+              }
+            }
+          >
+            <Image
+              resizeMode="center"
+              source={1}
+              style={
+                Object {
+                  "height": 35,
+                  "marginLeft": "15%",
+                  "width": 35,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontFamily": "bold-font",
+                  "fontSize": 27,
+                  "marginLeft": "10%",
+                }
+              }
+            >
+              HELP
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 0.2,
+          "flexDirection": "row",
+          "marginTop": "-20%",
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "height": "33%",
+            "marginLeft": "17%",
+            "marginTop": "-30%",
+            "width": "33%",
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "bold-font",
+            "fontSize": 30,
+            "marginLeft": "-14%",
+            "marginTop": "-21%",
+          }
+        }
+      >
+        SoftMINDS
+      </Text>
+    </View>
+  </View>
+</View>
+`;
