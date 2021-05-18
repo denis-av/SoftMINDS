@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`match correct the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderRadius": 20,
+      "height": 90,
+      "justifyContent": "center",
+      "width": 90,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontFamily": "bold-font",
+        "fontSize": 35,
+      }
+    }
+  />
+</View>
+`;
