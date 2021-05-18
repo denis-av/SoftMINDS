@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from '../screens/sign-up';
 import {findByTestAttr} from '../screens/sign-up';
-
+import * as firebase from 'firebase';
 import renderer from 'react-test-renderer';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,6 +9,14 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 const navigation = {navigate: jest.fn()};
+
+jest.mock('firebase', () => {
+  return {
+    auth: jest.fn().mockReturnThis(),
+    createUserWithEmailAndPassword: jest.fn().mockImplementation(() => Promise.resolve()),
+  };
+});
+
 
 test('renders correctly the snapshot', () => {
   const tree = renderer.create(<SignUp />).toJSON();
@@ -62,7 +70,7 @@ describe('SignUP', () => {
     const wrapper = shallow(<SignUp />);
     const instance = wrapper.instance();
 
-    const input = findByTestAttr(wrapper, "login-input")
+    const input = findByTestAttr(wrapper, "login-input");
   
     input.simulate("changeText", "any@email.com");
     wrapper.update();
@@ -87,23 +95,25 @@ describe('SignUP', () => {
   })
 })
 
-/*test('not navigate to login screen if email and password are not in the database', () => {
-    const wrapper = shallow(<SignUp navigation = {navigation}/>);
-    const instance = wrapper.instance();
+describe('SignUp', () => {
+  it('FireBase Test', () => {
+      const navigate = jest.fn();
+      const wrapper = shallow(<SignUp navigation = {navigation}/>);
+      const instance = wrapper.instance();
+      const input = findByTestAttr(wrapper, "login-input");
+      const input2 = findByTestAttr(wrapper, "login-input-pass");
+    
+      input.simulate("changeText", "uswrtest@yahoo.com");
+      input2.simulate("changeText", "123456");
 
-    const input = findByTestAttr(wrapper, "login-input");
-    const input2 = findByTestAttr(wrapper, "login-input-pass");
-  
-    input.simulate("changeText", "usertest2@yahoo.com");
-    input2.simulate("changeText", "123456");
-    wrapper.update();
+      const button = findByTestAttr(wrapper, "press-button");
+      button.simulate("press");
+      wrapper.update();
 
-    const button = findByTestAttr(wrapper, "press-button");
-    button.simulate("press");
-
-    jest.spyOn(instance, 'SignUpPress');
-    expect(navigation.navigate).toHaveBeenCalledTimes(1);
-  });*/
+      jest.spyOn(instance, 'SignUpPress');
+      expect(firebase.auth().createUserWithEmailAndPassword).toBeCalledWith("uswrtest@yahoo.com","123456");
+  });
+});
 
 
 

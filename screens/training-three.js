@@ -3,6 +3,11 @@ import {View, ImageBackground, Pressable, Text, Image, TextInput, TouchableOpaci
 import NumberCard from '../components/number-card';
 import { Stopwatch} from 'react-native-stopwatch-timer';
 
+export const findByTestAttr=(component, attr) => {
+    const wrapper = component.find(`[test-id='${attr}']`);
+    return wrapper;
+}
+
 export default class TrainingThree extends React.Component{
  
     #currentTime = "";
@@ -79,7 +84,7 @@ export default class TrainingThree extends React.Component{
                     <View style={{flex: 0.10,  flexDirection:'row', marginHorizontal:"7%", alignItems:'center', justifyContent:'center'}}>
                         <View style={{flex: 0.60, flexDirection:'column', justifyContent:'flex-end', height:"70%"}}>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <TextInput placeholder="Answer here" 
+                                <TextInput test-id="inputAnswer" placeholder="Answer here" 
                                        placeholderTextColor="#696969"
                                        style={{color: '#696969',fontSize:23, fontFamily:'bold-font', width:"85%"}}
                                        value={this.state.answer}
@@ -92,7 +97,7 @@ export default class TrainingThree extends React.Component{
                         <View style={{flexDirection:'row', alignItems:'center', borderWidth:2, borderTopWidth:0, borderLeftWidth:0, borderRightWidth:0,borderColor:'white', width:"97%"}}></View>
                         </View>
                             <View style={{flex:0.40}}>
-                                <Pressable style={{backgroundColor: '#F3A416', height:"70%", alignItems:'center', justifyContent:'center', marginLeft:"7%"}}  onPress={this.handleAnswer} >
+                                <Pressable test-id="press-button" style={{backgroundColor: '#F3A416', height:"70%", alignItems:'center', justifyContent:'center', marginLeft:"7%"}}  onPress={this.handleAnswer} >
                                     <Text style={{fontSize: 25, fontFamily:'bold-font', color:'white'}}>SUBMIT</Text>
                                 </Pressable>
                             </View>
