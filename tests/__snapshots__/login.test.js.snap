@@ -44,6 +44,7 @@ exports[`renders correctly the snapshot 1`] = `
         Object {
           "alignItems": "center",
           "flex": 0.3,
+          "flexDirection": "row",
           "marginTop": 70,
         }
       }
@@ -53,11 +54,24 @@ exports[`renders correctly the snapshot 1`] = `
         source={1}
         style={
           Object {
-            "height": "70%",
-            "width": "70%",
+            "height": "33%",
+            "width": "33%",
           }
         }
       />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "bold-font",
+            "fontSize": 59,
+            "marginLeft": "-13%",
+            "marginTop": "17%",
+          }
+        }
+      >
+        SoftMINDS
+      </Text>
     </View>
     <View
       style={
@@ -118,7 +132,7 @@ exports[`renders correctly the snapshot 1`] = `
                 "marginLeft": "-11%",
               }
             }
-            test-id="login-input"
+            test-id="testInputUsername"
             underlineColorAndroid="transparent"
             value=""
           />
@@ -174,7 +188,7 @@ exports[`renders correctly the snapshot 1`] = `
                 "marginLeft": "-19%",
               }
             }
-            test-id="login-input-pass"
+            test-id="testInputPassword"
             underlineColorAndroid="transparent"
             value=""
           />
@@ -223,7 +237,7 @@ exports[`renders correctly the snapshot 1`] = `
             }
           }
         >
-          REGISTER
+          LOGIN
         </Text>
       </View>
     </View>
@@ -265,7 +279,7 @@ exports[`renders correctly the snapshot 1`] = `
             }
           }
         >
-          Already have an account?
+          Don't have an account?
         </Text>
         <Text
           style={
@@ -276,7 +290,7 @@ exports[`renders correctly the snapshot 1`] = `
             }
           }
         >
-          LOGIN
+          REGISTER
         </Text>
       </View>
     </View>
